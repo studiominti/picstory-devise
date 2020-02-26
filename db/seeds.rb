@@ -15,3 +15,5 @@ Story.destroy_all
         image: "https://picsum.photos/id/#{i+25}/500/500", user: user
     )
 end
+
+User.create(name:"El Admin", email: "admin@gmail.com", password: "12345678", admin: true)
