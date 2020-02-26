@@ -8,7 +8,7 @@
         <%= image_tag story.image %>
         <div class="card-body">
             <h5 class="card-title">Subido por:<%= story.user %></h5>
-            <% if user_sign_in? %>
+            <% if user_signed_in? %>
                 <%= link_to 'Show', story, class:"btn btn-info" %>
                 <%= link_to 'Edit', edit_story_path(story), class:"btn btn-info" %>
                 <%= link_to 'Destroy', story, method: :delete, class:"btn btn-info", data: { confirm: 'Are you sure?' } %> 

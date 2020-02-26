@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 Story.destroy_all
-=begin   
-9.times do |i|
+ 
+6.times do |i|
+    user = User.create(name: "User #{i}", email: "mail#{i}@gmail.com", password: "12345678")
     Story.create(
-        image: "https://picsum.photos/id/#{i+25}/500/500"
+        image: "https://picsum.photos/id/#{i+25}/500/500", user: user
     )
 end
-=end
