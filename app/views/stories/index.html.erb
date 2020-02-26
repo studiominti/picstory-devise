@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stories</h1>
+
+  <% @stories.each_slice(3) do |stories|%>
+  <div class="card-deck">
+    <% stories.each do |story|%>
+      <div class="card mb-4">
+        <%= image_tag story.image %>
+        <div class="card-body">
+          <h5 class="card-title">Subido por:<%= story.user %></h5>
+          <%= if user_sign_in? %>
+            <%= if current_user.admin? || story.user == current_user %> 
+              <%= link_to 'Edit', edit_story_path(story), class:"btn btn-info" %>
+              <%= link_to 'Destroy', story, method: :delete, class:"btn btn-info", data: { confirm: 'Are you sure?' } %>
+            <% end %> 
+          <% end %>
+          <%= link_to 'Show', story, class:"btn btn-info" %>
+        </div>  
+      </div>     
+      <% end %>
+  </div>
+  <% end %>
+
+<%= link_to 'New Story', new_story_path %>

@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Story.destroy_all
+=begin   
+9.times do |i|
+    Story.create(
+        image: "https://picsum.photos/id/#{i+25}/500/500"
+    )
+end
+=end
